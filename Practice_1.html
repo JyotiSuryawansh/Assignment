@@ -1,0 +1,82 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        
+         <!-- <script>
+            function abc(){
+                let arr= [];
+            let n=window.prompt("Enter Number::");
+            for(let i=1;i<=n;i++){
+                if(i%3==0 & i%5==0){
+                    arr.push(i);
+                }
+            }
+              return arr;
+            }
+            console.log(abc()) -->
+            <script>
+        //     let name=prompt("Enter Name")
+        //     let func1 = (var1) => {
+        //         let v=var1[0].toUpperCase()+var1.substring(1)
+        //         return v
+        //     }
+        //     console.log(func1(name))
+        // 
+        // const a="vnjkg"
+        // a[0]="a"
+        // console.log(a)
+        //Array Contain atlist one element even then return yes and otherwise no
+         //let arr=[3,5,2,7,9];
+        //  let newArr =arr.filter(function (element){
+        //      return element%2==0;
+        //  })
+        //  if(newArr.length==0){
+        //      console.log("no")
+        //  }
+        //  else{
+        //      console.log("yes")
+        //  }
+        //  console.log(newArr.length==0?"no":"yes")
+        // // arr.push(5)
+        // arr[0]=3;
+        // console.log(arr)
+        // let Prime=arr.some(function (element){
+        //     let flag = true
+        //       for(let i=2;i<element;i++){
+        //           if(element%i==0){
+        //               flag = false
+        //               break
+        //           }
+        //       }
+        //      return flag  
+        // })
+        // console.log(Prime)
+        // arr=[2,3,4,5]
+        // let sum=arr.reduce((tempararySum,element,index) =>{
+        //    console.log(tempararySum  +"  "+index)
+        //     return tempararySum * element
+        // })
+        // console.log(sum)
+        // let obj1={html:'html',css:'css',js:'js'}
+        // let obj2=obj1
+        // obj2.html='HTML 5'
+        // console.log(obj1)
+        // let obj3=obj1
+        // obj3.css='css 3'
+        // console.log(obj1)
+        let arr1=[8,9,7]
+        let arr2=[1,2]
+         let parentArr=arr1
+         arr2.forEach(element =>{
+             parentArr.push(element)
+         }) 
+         let newArr=[...arr1,...arr2]
+        // parentArr=arr2.concat(arr1)
+        // console.log(parentArr)
+         console.log(newArr)
+         
+        </script>
+    </body>
+</html>

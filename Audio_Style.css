@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #BF40BF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    
+
+}
+.btn{
+
+       overflow: hidden;
+       background-color:#702963 ;
+       color: white;
+       border-radius: 10px;
+       border-style: none;
+       width: 100px;
+       height: 50px;
+}

@@ -65,18 +65,26 @@
         // console.log(obj1)
         // let obj3=obj1
         // obj3.css='css 3'
-        // console.log(obj1)
-        let arr1=[8,9,7]
-        let arr2=[1,2]
-         let parentArr=arr1
-         arr2.forEach(element =>{
-             parentArr.push(element)
-         }) 
-         let newArr=[...arr1,...arr2]
-        // parentArr=arr2.concat(arr1)
-        // console.log(parentArr)
-         console.log(newArr)
-         
+        // // console.log(obj1)
+        // let arr1=[8,9,7]
+        // let arr2=[1,2]
+        //  let parentArr=arr1
+        //  arr2.forEach(element =>{
+        //      parentArr.push(element)
+        //  }) 
+        //  let newArr=[...arr1,...arr2]
+        // // parentArr=arr2.concat(arr1)
+        // // console.log(parentArr)
+        //  console.log(newArr)
+           const executeOrder= function(callback){
+               setTimeout(function(){
+                   console.log('Order Received!')
+                   callback()
+               },2000)
+           }
+           executeOrder(function(){
+               console.log('the order')
+           })
         </script>
     </body>
 </html>

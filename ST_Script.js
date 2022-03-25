@@ -2,11 +2,21 @@ const apiUrl = 'https://api.quotable.io/random'
 const quoteDisplayElement = document.getElementById('quoteDisplay')
 const quoteInputElement = document.getElementById('quoteInput')
 const timerElement = document.getElementById('timer')
+const persantage = document.getElementById('persantage')
+const accuracy = document.getElementById('accuracy')
+let timerVar 
 
 quoteInputElement.addEventListener('input',() => {
     const arrayQuote = quoteDisplayElement.querySelectorAll('span')
     const arrayValue = quoteInputElement.value.split('')
+    let TotalLength = arrayQuote.length
+    let InputLength = arrayValue.length
+    let counterCorrect=0
+    
+    let number_Word= quoteInputElement.value.split(' ').length
     let correct = true
+
+    
     arrayQuote.forEach((characterSpan,index) => {
         const character = arrayValue[index]
         if(character == null){
@@ -15,15 +25,38 @@ quoteInputElement.addEventListener('input',() => {
             correct = false
         }
         else if (character === characterSpan.innerText){
+            counterCorrect++
             characterSpan.classList.add('correct')
             characterSpan.classList.remove('incorrect')
         } else{
+            
             characterSpan.classList.remove('correct')
             characterSpan.classList.add('incorrect')
-            correct = false
+           // correct = false
         }
     })
-    if(correct) getNextQuote()
+
+
+ if(TotalLength==InputLength){
+     accuracy.innerHTML= "Accuracy:"+Math.floor((counterCorrect/TotalLength)*100)+"%"// +'Speed of typing:'+(number_Word) 
+     clearInterval(timerVar)
+
+     //alert("Accuracy: "+acc)
+     getNextQuote()
+ }
+
+
+    // if(TotalLength==counterCorrect)
+    // {
+    //     alert("Accuracy is 100 %")
+    //      getNextQuote()
+    // }
+    // else if(TotalLength==counterWrong){
+
+    //     //accuracy.innerHTML=Math.floor((TotalLength/counter)*100)
+    //     alert("Accuracy is :"+Math.floor((TotalLength/counterCorrect)*100))
+    //     getNextQuote()
+    // }
 })
 
 function getQuotes(){
@@ -32,6 +65,7 @@ function getQuotes(){
 
 async function getNextQuote(){
     const quote = await getQuotes()
+    //console.log(quote.length)
     quoteDisplayElement.innerHTML = ''
     quote.split('').forEach(element => {
         const characterSpace = document.createElement('span')
@@ -47,82 +81,11 @@ let startTime
 function startTimer(){
     timerElement.innerText=0
     startTime = new Date()
-    setInterval(() =>{
+    timerVar = setInterval(() =>{
         timer.innerText = getTimerTime()
-    },1000)
+        },1000)
 }
 function getTimerTime(){
     return Math.floor((new Date() - startTime)/1000)
 }
 getNextQuote()
-
-
-
-
-
-
-
-
-
-
-
-// const quoteContainer = document.getElementById("container")
-// const quoteText = document.getElementById("quote")
-// const authorText = document.getElementById("author")
-// const newQuoteBtn = document.getElementById("new-quote")
-// const loader = document.getElementById("loader")
-
-// let apiQuotes=[]
-
-// function showLoadingSpinner(){
-//     loader.hidden=false;
-//     quoteContainer.hidden = true;
-// }
-
-// function removeLoadingSpinner(){
-//     quoteContainer.hidden = false
-//     loader.hidden = true
-// }
-// async function getQuotes(){
-//     showLoadingSpinner();
-    
-
-//     try{
-//         const response = await fetch(apiUrl)
-//         apiQuotes = await response.json()
-
-//         newQuote()
-//     }catch(error){
-//         console.log(error)
-//     }
-
-// }
-
-// function newQuote(){
-//     showLoadingSpinner()
-
-//     setTimeout(function(){
-//         const quote = apiQuotes[Math.floor(Math.random()*apiQuotes.length)]
-
-//         console.log(quote)
-//         // {text: "Quote text", author: "Author Name"}
-    
-//         if(!quote.author){
-//             authorText.textContent = 'Unknown'
-//         }else{
-//             authorText.textContent = quote.author
-//         }
-//         if(quote.text.length>100){
-//             quoteText.classList.add("long-quote")
-//         }else{
-//             quoteText.classList.remove("long-quote")
-//         }
-//         quoteText.textContent = quote.text;
-//         removeLoadingSpinner()
-
-//     },200)
-// }
-
-// getQuotes();
-
-// newQuoteBtn.addEventListener("click", newQuote)

@@ -28,6 +28,15 @@ body{
     color: #F0DB4F;  
     font-weight: bold;
 }
+.accuracy{
+    top :6rem;
+   position:absolute; 
+   font-size: 2rem;
+   color: yellow;  
+   font-weight: bold;
+   text-align: center;
+}
+
 .quote-display{
      margin-bottom: 1rem; 
      margin-left: calc(1rem + 2px);

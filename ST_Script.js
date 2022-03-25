@@ -36,7 +36,6 @@ quoteInputElement.addEventListener('input',() => {
         }
     })
 
-
  if(TotalLength==InputLength){
      accuracy.innerHTML= "Accuracy:"+Math.floor((counterCorrect/TotalLength)*100)+"%"// +'Speed of typing:'+(number_Word) 
      clearInterval(timerVar)
@@ -46,17 +45,6 @@ quoteInputElement.addEventListener('input',() => {
  }
 
 
-    // if(TotalLength==counterCorrect)
-    // {
-    //     alert("Accuracy is 100 %")
-    //      getNextQuote()
-    // }
-    // else if(TotalLength==counterWrong){
-
-    //     //accuracy.innerHTML=Math.floor((TotalLength/counter)*100)
-    //     alert("Accuracy is :"+Math.floor((TotalLength/counterCorrect)*100))
-    //     getNextQuote()
-    // }
 })
 
 function getQuotes(){
